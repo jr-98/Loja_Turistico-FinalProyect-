@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+	
+  <head>
+    <meta charset="utf-8">
+	<title>Geolocalizoción de Hoteles </title>  
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- estilos -->
+	<link href="assets/css/bootstrap.css" rel="stylesheet"> 
+	<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+	<link href="assets/css/prettyPhoto.css" rel="stylesheet">  
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link href="assets/css/flexslider.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/color/default.css" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,600,400italic|Open+Sans:400,600,700" rel="stylesheet">
+	  <!-- animaciones y toques de Iconos -->
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+    <style>
+        #map {/* dimensiones del mapa*/
+        height:550px;
+        width: 100%;
+		margin-bottom: 15px;
+       }
+		
+    </style>
+  </head>
+	<!--Find los estilos-->
+  <body>
+   <!-- cracion de la barra o menu -->
+   <div id="wrapper"> <!--se puede eliminar mas adelante -->
+	   <header>
+		   <div class="navbar navbar-static-top">
+			   <div class="navbar-inner">
+				   <div class="container"><!--Creacion del Icono-->
+					   <div class="logo">
+						   <a href="index.html">
+							   <img src="assets/img/logo.png" />
+						   </a>
+					   </div>
+					   <!-- fin de la cracion de Logo e inicio de los iconos restantes para completar el menu -->
+					   <div class="navigation">
+						   <nav>
+							 <ul class="nav topnav">
+								 <li><!-- incono de Home -->
+									 <a href="index.html"><i class="icon-home"></i> Inicio </a>
+								 </li>
+								 <li class="dropdown"><!--lista desplegable -->
+									 <a href="#"><i class="icon-bookmark"></i>Más Mapas<i class="icon-caret-down"></i></a>
+									 <ul class="dropdown-menu"><!-- opciones-->
+										 <li><a href="404.html">Restaurantes</a></li>
+										 <li><a href="404.html">Parquedearos</a></li>
+									 </ul>
+									 <!--Pueden ir la pestaña de todos los hoteles -->
+								 </li>
+								 <li>
+									 <a href="contact.html"><i class="icon-envelope-alt"></i>Asistencia</a>
+								 </li>
+							 </ul>  
+						   </nav>
+					   </div>
+					   
+				   </div>
+			   </div> 
+		   </div>
+	   </header>
+	   <!--cntenido de información-->
+	   <section id="intro">
+		   <div class="container-fluid">
+			   <div class="row">
+				   <div class="span4">
+					   <aside>
+						   <div class="widget">
+							   <h4>Contacte con nosotros </h4>
+						   </div>
+					   </aside>
+				   </div>
+				  
+	   <!--Contenido Mapa-->
+                  <div class="span10">
+					   <aside>
+					   <div id="map">
+						   <script>
+							   function initMap() {
+                                   var map = new google.maps.Map(document.getElementById('map'), {
+									   zoom: 14.5,
+									   center: {lat: -3.988865, lng:-79.200896}
+								   });
+
+								   setMarkers(map);
+							   	}
+							   var Hoteles = [
+  							    	['Jardines del rio hotel',-4.0195604,-79.2038599],
+								   ['Hostal gaviota azul',-3.9765902,-79.2049188],
+  							    	['Hotel Expohostal', -3.9759684, -79.2041663],
+								   ['Casben Hotel', -3.9767825, -79.2028518],
+								   ['Quo vadis', -3.9769672, -79.203687],
+								   ['Hotel Howard Johnson Loja', -3.993362, -79.197521],
+								   ['Unihotel',-4.0024266,-79.2029048],
+								   ['Hostal pucara',-4.0009519,-79.205831],
+								   ['Hotel villonaco ', -3.9968196, -79.2031573],
+								   ['Hostal america',-3.9936207,-79.2042643],
+								   ['Gran vitoria',-3.9957805,-79.2012548],
+								   ['Ramses Hotel', -3.9951491, -79.2025852],
+								   ['Hotel libertador', -3.9954166, -79.2025208],
+								   ['Hotel metropolitano', -3.9957835, -79.204271],
+								   ['Hotel Bombuscaro', -3.997297, -79.2045993],
+								   ['Hotel prado internacional',-3.9983652,-79.2055035],
+								   ['Hotel vilcabamba',-3.9991479,-79.2051042],
+								   ['Hotel la castellana', -3.9999207, -79.2058811],
+								   ['Hotel san sebastian', -4.0006824, -79.2038083],
+								   ['Zamorano real hotel',   -3.9993901, -79.2023212],
+								   ['Hotel podocarpus', -3.9965511, -79.2047444]
+							   ];
+
+							   function setMarkers(map) {
+  								// Adds markers to the map.
+
+  								// Marker sizes are expressed as a Size of X,Y where the origin of the image
+  								// (0,0) is located in the top left of the image.
+
+  								// Origins, anchor positions and coordinates of the marker increase in the X
+								// direction to the right and in the Y direction down.
+  								var image = 'assets/img/icons/marcador5.png';
+  // Shapes define the clickable region of the icon. The type defines an HTML
+  // <area> element 'poly' which traces out a polygon as a series of X,Y points.
+  // The final coordinate closes the poly by connecting to the first coordinate.
+								for (var i = 0; i < Hoteles.length; i++) {
+									var   hotel = Hoteles[i];
+									var marker = new google.maps.Marker({
+										position: {lat: hotel[1], lng: hotel[2]},
+										map: map,
+										icon: image,
+										title: hotel[0],
+										zIndex: hotel[3]
+									});
+								}
+							   }
+						   </script>
+   						 <script async defer
+					  	 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcRpNmPykdgDTgHpOS-_freSJl61dCJeE&callback=initMap">
+						 </script>
+					   </div>
+				     </aside>
+				   </div>
+			   </div>
+		    </div>
+	   </section>
+   </div>	  
+	  
+	  
+	    <a href="#" class="scrollup"><i class="icon-chevron-up icon-square icon-48 active"></i></a>
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/raphael-min.js"></script>
+  <script src="assets/js/jquery.easing.1.3.js"></script>
+  <script src="assets/js/bootstrap.js"></script>
+  <script src="assets/js/google-code-prettify/prettify.js"></script>
+  <script src="assets/js/jquery.elastislide.js"></script>
+  <script src="assets/js/jquery.prettyPhoto.js"></script>
+  <script src="assets/js/jquery.flexslider.js"></script>
+  <script src="assets/js/jquery-hover-effect.js"></script>
+  <script src="assets/js/animate.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8HeI8o-c1NppZA-92oYlXakhDPYR7XMY"></script>
+
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Custom JavaScript File -->
+  <script src="assets/js/custom.js"></script>
+  </body>
+</html>

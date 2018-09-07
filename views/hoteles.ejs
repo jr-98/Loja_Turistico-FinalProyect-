@@ -1,0 +1,61 @@
+<%- include layouts/header.ejs %>
+        <div class="span4" style="float:right">
+            <div class="search">
+              <form class="input-append">
+                <button class="btn btn-dark" type="submit"><a href="/">Cerrar</button>
+              </form>
+            </div>
+        </div>
+        <div class="page-data">
+         <div class="data-btn">
+           <button onClick="addUser();">+ Add</button>
+         </div>
+         <div class="data-table">
+            <table border="1" cellpadding="7" cellspacing="7">
+                <tr>
+                    <th width="50px">No</th>
+                    <th>Id_Hotel</th>
+                    <th>Nombre</th>
+                    <th>Pais</th>
+                    <th>Provincia</th>
+                    <th>Canton</th>
+                    <th>Latitud</th>
+                    <th>Longitud</th>
+                    <th width="120px">Action</th>
+                </tr>
+                               
+                <% if(data.length){ 
+                                
+                 for(var i = 0;i < data.length;i++) { %>
+                 
+                <tr>
+                    <td><%=(i+1)%></td>
+                    <td><%=data[i].idhotel%></td>
+                    <td><%=data[i].Nombre%></td>
+                    <td><%=data[i].Pais%></td>
+                    <td><%=data[i].Provincia%></td>
+                    <td><%=data[i].Cantón%></td>
+                    <td><%=data[i].latitud%></td>
+                    <td><%=data[i].longitud%></td>
+                    <td>
+                        <a class="a-inside edit" href="../hoteles/edit/<%=data[i].idhotel%>">Edit</a>
+                       
+                        <a class="a-inside delete" href="../hoteles/delete/<%=data[i].idhotel%>">Delete</a>
+                       
+                    </td>
+                </tr>
+            <% }
+            
+             }else{ %>
+                 <tr>
+                    <td colspan="3">No user</td>
+                 </tr>
+            <% } %>
+                
+                              
+                
+            </table>
+         </div>
+        </div>
+        
+<%- include layouts/footer.ejs %>

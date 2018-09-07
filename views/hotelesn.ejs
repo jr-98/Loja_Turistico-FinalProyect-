@@ -1,0 +1,61 @@
+<%- include layouts/header.ejs %>
+        <div class="span4" style="float:right">
+            <div class="search">
+              <form class="input-append">
+                <button class="btn btn-dark" type="submit"><a href="/">Cerrar</button>
+              </form>
+            </div>
+        </div>
+        <div class="page-data">
+         <div class="data-btn">
+           <button onClick="addUser();">+ Add</button>
+         </div>
+         <div class="data-table">
+            <table border="1" cellpadding="7" cellspacing="7">
+                <tr>
+                    <th>Id_Hotel</th>
+                    <th>Nombre</th>
+                    <th>Direccion</th>
+                    <th>Categoria</th>
+                    <th>Canton</th>
+                    <th>Latitud</th>
+                    <th>Longitud</th>
+                    <th>img1</th>
+                    <th>img2</th>
+                    <th>img3</th>
+                    <th>telefono</th>
+                    <th>link</th>
+                    <th>descripcion</th>
+                    <th width="120px">Action</th>
+                </tr>            
+                <% if(data.length){              
+                 for(var i = 0;i < data.length;i++) { %>
+                <tr>
+                    <td><%=data[i].id_hotel%></td>
+                    <td><%=data[i].nombre%></td>
+                    <td><%=data[i].direccion%></td>
+                    <td><%=data[i].categoria%></td>
+                    <td><%=data[i].canton%></td>
+                    <td><%=data[i].latitud%></td>
+                    <td><%=data[i].longitud%></td>
+                    <td><%=data[i].img1%></td>
+                    <td><%=data[i].img2%></td>
+                    <td><%=data[i].img3%></td>
+                    <td><%=data[i].telefono%></td>
+                    <td><%=data[i].link%></td>
+                    <td><%=data[i].descripcion%></td>
+                    <td>
+                        <a class="a-inside edit" href="../hoteles/edit/<%=data[i].id_hotel%>">Edit</a>
+                        <a class="a-inside delete" href="../hoteles/delete/<%=data[i].id_hotel%>">Delete</a>
+                    </td>
+                </tr>
+            <% } 
+             }else{ %>
+                 <tr>
+                    <td colspan="3">No user</td>
+                 </tr>
+            <% } %>  
+            </table>
+         </div>
+        </div>
+<%- include layouts/footer.ejs %>

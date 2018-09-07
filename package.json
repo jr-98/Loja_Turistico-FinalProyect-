@@ -1,0 +1,30 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "ejs": "^1.0.0",
+    "express": "3.5.1",
+    "express-myconnection": "1.0.4",
+    "jade": "*",
+    "mysql": "2.2.0",
+    "orm": "^5.0.2",
+    "sequelize": "^4.38.0"
+  },
+  "description": "This is a very basic example of CRUD in Node.js n mySQL.",
+  "main": "app.js",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JorgePucha/Hoteles.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JorgePucha/Hoteles/issues"
+  },
+  "homepage": "https://github.com/JorgePucha/Hoteles#readme"
+}

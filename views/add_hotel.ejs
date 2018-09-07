@@ -1,0 +1,55 @@
+<%- include layouts/header.ejs %>
+
+        <div class="page-data">
+            
+            <form method="post" action="/hoteles/add">
+                <table cellpadding="11">
+                 <tr>
+                    <td class="label" valign="top">Nombre</td><td valign="top">: <textarea name="nombre" required cols="30" rows="5"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="label">Direccion</td><td>: <input type="text" name="direccion" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">Categoria</td><td>: <input type="text" name="categoria" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">Cantón</td><td>: <input type="text" name="canton" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">Latitud</td><td>: <input type="text" name="latitud" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">Longitud</td><td>: <input type="text" name="longitud" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">Nombre Imagen1</td><td>: <input type="text" name="img1" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">Nombre Imagen2</td><td>: <input type="text" name="img2" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">Nombre Imagen3</td><td>: <input type="text" name="img3" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">Telefono</td><td>: <input type="text" name="telefono" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">Link</td><td>: <input type="text" name="link" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label" valign="top">Descripcion</td><td valign="top">: <textarea name="descripcion" required cols="30" rows="5"></textarea></td>
+                </tr>
+                 <tr>
+                    <td class="label"></td>
+                    <td>
+                        &nbsp; <input type="submit" name="submit" value="Save">
+                       <input type="button" name="cancel" value="Cancel" class="cancel" onClick="cancelAdd()">
+                    </td>
+                 </tr>
+                </table>
+            </form>
+            
+        </div>
+        
+<%- include layouts/footer.ejs %>

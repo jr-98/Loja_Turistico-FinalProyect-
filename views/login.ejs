@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">		
+ <link href="../../assets/css/style2.css" rel="stylesheet">
+</head>
+<body>
+<script type="Func_login.js"></script>
+
+
+  <form method="post" action="/usuarios/add">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="https://png.icons8.com/windows/96/2ecc71/name.png" alt="Avatar" class="avatar">
+    </div>
+    <div class="container">
+      <label for="uname"><b>Nombre de Usuario</b></label>
+      <input type="text" placeholder="Ingresar nombre de Usuario" name="Login" required>
+	 <div class="container">
+      <label for="uname"><b>Email</b></label>
+      <input type="text" placeholder="user@hotmail.com" name="email" required>
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Ingresar contraseña" name="password" required>
+	    <label for="uname"><b>Pais</b></label>
+      <input type="text" placeholder="Ejm 'España'" name="pais" required>
+      <label for="uname"><b>Nombre Imagen</b></label>
+      <input type="text" placeholder="Ejm 'hombre.jpg'" name="img" required>
+      <button type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> 
+		  Recordar 
+      </label>
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancelar</button>
+      <span class="psw">Olvidaste tu  <a href="#">Contraseña?</a></span>
+    </div>
+  </form>
+
+<script >
+  let Checked = null;
+//The class name can vary
+for (let CheckBox of document.getElementsByClassName('only-one')){
+  CheckBox.onclick = function(){
+    if(Checked!=null){
+      Checked.checked = false;
+      Checked = CheckBox;
+    }
+    Checked = CheckBox;
+  }
+}
+
+</script>
+</body>
+</html>

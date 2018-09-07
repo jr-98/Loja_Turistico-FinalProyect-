@@ -1,0 +1,45 @@
+<%- include layouts/header.ejs %>
+          <div class="span4" style="float:right">
+            <div class="search">
+              <form class="input-append">
+                <button class="btn btn-dark" type="submit"><a href="/">Cerrar</button>
+              </form>
+            </div>
+          </div>
+        <div class="page-data">
+         <div class="data-btn">
+           <button onClick="addUser1();">+ Add</button>
+         </div>
+         <div class="data-table">
+            <table border="1" cellpadding="7" cellspacing="7">
+                <tr>
+                    <th>Login</th>
+                    <th>e-mail</th>
+                    <th>Password</th>
+                    <th>Pais</th>
+                    <th>Nombre Imagen 1</th>
+                    <th width="120px">Action</th>
+                </tr>            
+                <% if(data.length){              
+                 for(var i = 0;i < data.length;i++) { %>
+                <tr>
+                    <td><%=data[i].Login%></td>
+                    <td><%=data[i].email%></td>
+                    <td><%=data[i].password%></td>
+                    <td><%=data[i].pais%></td>
+                    <td><%=data[i].img%></td>
+                    <td>
+                        <a class="a-inside edit" href="../usuarios/edit/<%=data[i].Login%>">Edit</a>
+                        <a class="a-inside delete" href="../usuarios/delete/<%=data[i].Login%>">Delete</a>
+                    </td>
+                </tr>
+            <% } 
+             }else{ %>
+                 <tr>
+                    <td colspan="3">No user</td>
+                 </tr>
+            <% } %>  
+            </table>
+         </div>
+        </div>
+<%- include layouts/footer.ejs %>

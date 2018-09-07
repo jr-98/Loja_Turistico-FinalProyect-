@@ -1,0 +1,61 @@
+<%- include layouts/header.ejs %>
+
+        <div class="page-data">
+            
+            <form method="post" action="/hoteles/edit/<%=data[0].id_hotel%>">
+                <table cellpadding="11">
+                <tr>
+                    <td class="label">Id_hotel</td><td>: <input type="text" name="id_hotel" value="<%=data[0].id_hotel%>" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">Nombre</td><td>: <input type="text" name="nombre" value="<%=data[0].nombre%>" required></td>
+                 </tr>
+                <tr>
+                    <td class="label">Dirección</td><td>: <input type="text" value="<%=data[0].direccion%>" name="direccion" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">Categoria</td><td>: <input type="text" value="<%=data[0].categoria%>" name="categoria" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">Cantón</td><td>: <input type="text" value="<%=data[0].canton%>" name="canton" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">Latitud</td><td>: <input type="text" value="<%=data[0].latitud%>" name="latitud" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">Longitud</td><td>: <input type="text" value="<%=data[0].longitud%>" name="longitud" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">Url Imagen1</td><td>: <input type="text" value="<%=data[0].img1%>" name="img1" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">Url Imagen2</td><td>: <input type="text" value="<%=data[0].img2%>" name="img2" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">Url Imagen3</td><td>: <input type="text" value="<%=data[0].img3%>" name="img3" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">Telefono</td><td>: <input type="text" value="<%=data[0].telefono%>" name="telefono" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label">Link propio</td><td>: <input type="text" value="<%=data[0].link%>" name="link" required></td>
+                 </tr>
+                 <tr>
+                    <td class="label" valign="top">Descripción</td>
+                    <td valign="top">: 
+                        <textarea name="descripcion" required cols="30" rows="5"><%=data[0].descripcion%></textarea>
+                    </td>
+                </tr>
+                 <tr>
+                    <td class="label"></td>
+                    <td>
+                        &nbsp; <input type="submit" name="submit" value="Save">
+                       <input type="button" name="cancel" value="Cancel" class="cancel" onClick="cancelAdd()">
+                    </td>
+                 </tr>
+                </table>
+            </form>
+            
+        </div>
+        
+<%- include layouts/footer.ejs %>
